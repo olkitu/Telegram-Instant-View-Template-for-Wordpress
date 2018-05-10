@@ -1,0 +1,20 @@
+# Use this template only blog article pages
+?exists: /html/head/meta[@property="article:published_time"]
+
+# Get article text in <article> 
+body:     //article
+
+# Get title from <h1>
+
+title:    $body//h1[1]
+subtitle: $title/next-sibling::h2
+
+# Get article cover image
+cover: //img[has-class("wp-post-image")]
+
+# Convert all iframe elements to inline elemtent
+@inline: $body//iframe[starts-with(@src, "/media/")]
+
+# Remote header and footer
+@remove: //article/header
+@remove: //article/footer
