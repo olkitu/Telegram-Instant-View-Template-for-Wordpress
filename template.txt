@@ -21,3 +21,6 @@ cover: //img[has-class("wp-post-image")]
 # Remote header and footer
 @remove: //article/header
 @remove: //article/footer
+
+# Replace p to figure
+@replace_tag(<figure>): $body//p[.//img]
