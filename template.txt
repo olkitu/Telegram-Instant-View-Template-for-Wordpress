@@ -15,7 +15,7 @@ subtitle: $title/next-sibling::h2
 # Get article cover image
 cover: //img[has-class("wp-post-image")]
 
-# Convert all iframe elements to inline elemtent
+# Convert all iframe elements to inline element
 @inline: $body//iframe[starts-with(@src, "/media/")]
 
 # Remote header and footer
