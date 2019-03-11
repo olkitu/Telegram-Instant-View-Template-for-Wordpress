@@ -11,6 +11,7 @@ body:     //article
 
 title:    $body//h1[1]
 subtitle: $title/next-sibling::h2
+author_url: //span[has-class("author")]//@href
 
 # Get article cover image
 cover: //img[has-class("wp-post-image")]
