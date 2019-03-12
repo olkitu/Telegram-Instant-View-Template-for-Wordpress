@@ -25,3 +25,6 @@ cover: //img[has-class("wp-post-image")]
 
 # Replace p to figure
 @replace_tag(<figure>): $body//p[.//img]
+
+# Youtube Embedded Fix
+@replace_tag(<figure>): $body//p[.//iframe]
