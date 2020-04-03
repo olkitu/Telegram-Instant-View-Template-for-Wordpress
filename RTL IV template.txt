@@ -1,0 +1,34 @@
+# Use Instant View version 2.0
+~version: "2.0"
+
+# Use this template only blog article pages
+?exists: /html/head/meta[@property="article:published_time"]
+
+# Get article text in <article> 
+body:     //article
+
+# Get title from <h1>
+
+title:    $body//h1[1]
+subtitle: $title/next-sibling::h2
+author_url: //span[has-class("author")]//@href
+
+# Get article cover image
+cover: //img[has-class("wp-post-image")]
+
+# Convert all iframe elements to inline element
+@inline: $body//iframe[starts-with(@src, "/media/")]
+
+# Remote header and footer
+@remove: //article/header
+@remove: //article/footer
+
+# Replace p to figure
+@replace_tag(<figure>): $body//p[.//img]
+
+# Youtube Embedded Fix
+@replace_tag(<figure>): $body//p[.//iframe]
+
+# setting direction to rtl
+@set_attr(dir, "rtl"): $body    
+ 
