@@ -23,6 +23,9 @@ cover: //img[has-class("wp-post-image")]
 @remove: //article/header
 @remove: //article/footer
 
+# Fix gallery <figure>
+@split_parent: //figure[has-class("wp-block-image")]
+
 # Replace p to figure
 @replace_tag(<figure>): $body//p[.//img]
 
